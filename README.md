@@ -4,6 +4,7 @@ posts the data to a HTTP backend specified in the application's config file.
 
 ## Running binaries
 * ensure you ahve JVM installed on your system and JAVA_HOME is set in your PATH
+* open run/config.ini and make the desired changes. see the comments in the file for setting details
 * windows: open run/run.bat
 * UNIX: open run/run.sh
 
