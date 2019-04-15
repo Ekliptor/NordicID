@@ -28,7 +28,7 @@ import com.nordicid.nurapi.NurTagStorage;
 public class Example {
 	
 	// We store unique read tags in this storage
-	static NurTagStorage uniqueTags = new NurTagStorage();
+	static NurTagStorage uniqueTags = new TagCounter();
 	
 	// API access
 	static NurApi api = null;	
