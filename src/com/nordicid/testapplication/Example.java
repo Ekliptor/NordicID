@@ -183,6 +183,8 @@ public class Example {
 		String[] tags = config.getPrefs().node("Debug").get("SampleData", "").split(",");
 		for (String tag: tags)
 		{
+			//if (((TagCounter)uniqueTags).addTag(tag) == false)
+				//continue; // already present
 			poster.postTag(tag);
 			try {
 				Thread.sleep(Example.config.getPrefs().node("Debug").getInt("PostIntervalMs", 100));

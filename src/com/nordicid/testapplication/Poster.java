@@ -11,6 +11,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
@@ -35,6 +36,7 @@ public class Poster {
 		// post
 		HttpEntity entity = null;
 		try {
+			httppost.setEntity(new UrlEncodedFormEntity(params));
 			HttpResponse response = httpclient.execute(httppost);
 			entity = response.getEntity();
 			if (entity == null)
