@@ -84,9 +84,15 @@ public class Poster {
 			}
 			if (this.formUrl.matches("^https?:\\/\\/") == false) { // add domain from config URL
 				url = urlParts.getProtocol() + "://" + urlParts.getHost();
-				if (this.formUrl.length() == 0 || this.formUrl.charAt(0) != '/')
-					url += "/";
-				url += this.formUrl;
+				if (this.formUrl.length() == 0 || this.formUrl.charAt(0) != '/') {
+					url += urlParts.getPath(); // path already starts with /
+				}
+				if (url.indexOf(".php") == -1)
+					url += this.formUrl;
+				else if (url.indexOf("?") != -1 && url.indexOf("?") == -1) {
+					String query = url.substring(url.indexOf("?"));
+					url += query;
+				}
 			}
 			else
 				url = this.formUrl; // server already returned a full URL
